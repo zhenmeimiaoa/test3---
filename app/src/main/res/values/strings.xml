@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">医疗数据采集系统</string>
+    <string name="start_camera">启动相机</string>
+    <string name="stop_camera">停止相机</string>
+    <string name="face_detected">检测到 %d 张人脸</string>
+    <string name="no_face">未检测到人脸</string>
+    <string name="camera_permission_required">需要相机权限才能进行人脸识别</string>
+</resources>
