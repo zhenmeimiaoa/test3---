@@ -5,10 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/white">
+    android:padding="16dp">
 
-    <!-- 标题 -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,138 +16,87 @@
         android:gravity="center"
         android:layout_marginBottom="16dp" />
 
-    <!-- 身份证信息录入区域 -->
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btnManualInput"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:text="Manual Input"
+            android:layout_marginEnd="8dp" />
 
-            <!-- 录入方式选择 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
+        <Button
+            android:id="@+id/btnOCRInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="OCR Scan" />
+    </LinearLayout>
 
-                <Button
-                    android:id="@+id/btnManualInput"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Manual Input"
-                    android:layout_marginEnd="8dp" />
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:layout_marginBottom="8dp" />
 
-                <Button
-                    android:id="@+id/btnOCRInput"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="OCR Scan" />
-            </LinearLayout>
+    <EditText
+        android:id="@+id/etIdNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID Number"
+        android:layout_marginBottom="8dp" />
 
-            <!-- 身份证信息表单 -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="8dp">
+    <EditText
+        android:id="@+id/etGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gender"
+        android:layout_marginBottom="8dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName" />
-            </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/etAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address"
+        android:layout_marginBottom="16dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="ID Number (18 digits)"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="8dp">
+    <ImageView
+        android:id="@+id/ivIdCardPhoto"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:background="#000000"
+        android:layout_marginBottom="16dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etIdNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:maxLength="18" />
-            </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btnFaceCompare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Face Verification"
+        android:enabled="false"
+        android:layout_marginBottom="16dp" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Gender"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="8dp">
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etGender"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Address"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_marginBottom="16dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:minLines="2" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!-- 身份证照片预览 -->
-            <ImageView
-                android:id="@+id/ivIdCardPhoto"
-                android:layout_width="200dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:background="@color/black"
-                android:scaleType="centerCrop"
-                android:layout_marginBottom="16dp" />
-
-            <!-- 人脸比对区域 -->
-            <Button
-                android:id="@+id/btnFaceCompare"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Start Face Verification"
-                android:enabled="false"
-                android:layout_marginBottom="16dp" />
-
-            <!-- 摄像头预览 -->
-            <androidx.camera.view.PreviewView
-                android:id="@+id/previewView"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:visibility="gone"
-                android:layout_marginBottom="16dp" />
-
-            <!-- 比对结果 -->
-            <TextView
-                android:id="@+id/tvCompareResult"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Please input ID card info first"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:padding="16dp"
-                android:background="@color/teal_200"
-                android:textColor="@color/black" />
-
-        </LinearLayout>
-    </ScrollView>
+    <TextView
+        android:id="@+id/tvCompareResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please input ID card info first"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="#FF03DAC5" />
 
 </LinearLayout>
